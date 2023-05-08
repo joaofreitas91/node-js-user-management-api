@@ -12,10 +12,6 @@ const server = http.createServer((req, res) => {
         return res.end(JSON.stringify(users))
     }
 
-    if(url === '/users' && method === 'PUT') {
-        return res.end('PUT USERS')
-    }
-
     if(url === '/users' && method === 'POST') {
 
         users.push({
@@ -24,10 +20,10 @@ const server = http.createServer((req, res) => {
             email: 'johndoe@email.com'
         })
         
-        return res.end('User created')
+        return res.writeHead(201).end()
     }
 
-    res.end('Hello World')
+    res.writeHead(404).end()
 })
 
 server.listen(port , () => {
