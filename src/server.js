@@ -1,4 +1,5 @@
 import http from 'node:http'
+import { randomUUID } from 'node:crypto'
 
 const port = 3333
 
@@ -20,7 +21,6 @@ const server = http.createServer(async (req, res) => {
     }
 
     if(url === '/users' && method === 'GET') {
-        console.log('GET USERS')
         return res.end(JSON.stringify(users))
     }
 
@@ -29,7 +29,7 @@ const server = http.createServer(async (req, res) => {
         const { name, email } = req.body
 
         users.push({
-            id: 1,
+            id: randomUUID(),
             name,
             email
         })
