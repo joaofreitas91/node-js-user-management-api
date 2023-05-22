@@ -10,7 +10,9 @@ export const  routes = [
         path: buildRouterPathRegExp('/users'),
         method: 'GET',
         handler: (req, res) => {
-            return res.end(JSON.stringify(database.select('users')))
+            const { search } = req.query
+
+            return res.end(JSON.stringify(database.select('users', search)))
         },
     },
     {
@@ -22,7 +24,7 @@ export const  routes = [
             const user = database.selectOne('users', id)
 
             if (!user) {
-                return res.writeHead(404).end()
+                return res.writeHead(404).end(JSON.stringify({ error: 'User not found' }))
             }
 
             return res.end(JSON.stringify(user))
@@ -47,11 +49,34 @@ export const  routes = [
     },
     {
         path: buildRouterPathRegExp('/users/:id'),
+        method: 'PUT',
+        handler: (req, res) => {
+            const { id } = req.params
+            const { name, email } = req.body
+
+            const user = database.selectOne('users', id)
+
+            if (!user) {
+                return res.writeHead(404).end(JSON.stringify({ error: 'User not found' }))
+            }
+           
+            database.update('users', id, { name, email })
+
+            return res.writeHead(204).end()
+        }
+    },
+    {
+        path: buildRouterPathRegExp('/users/:id'),
         method: 'DELETE',
         handler: (req, res) => {
             const { id } = req.params
+            
+            const user = database.selectOne('users', id)
 
-            database.select('users')
+            if (!user) {
+                return res.writeHead(404).end(JSON.stringify({ error: 'User not found' }))
+            }
+
 
             database.delete('users', id)
 
