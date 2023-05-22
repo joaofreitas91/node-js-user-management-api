@@ -23,6 +23,12 @@ export class Database {
         return data
     }
 
+    selectOne(table, id) {
+        const data = this.#database[table] ?? []
+        
+        return data.find(data => data.id === id)
+    }
+
     insert(table, data) {
         if (Array.isArray(this.#database[table])) {
             this.#database[table].push(data)
@@ -33,5 +39,11 @@ export class Database {
         this.#persist()
 
         return data
+    }
+
+    delete(table, id) {
+        this.#database[table] = this.#database[table].filter(data => data.id !== id)
+
+        this.#persist()
     }
 }
