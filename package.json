@@ -1,5 +1,5 @@
 {
-  "name": "node-user-management-api",
+  "name": "node-js-user-management-api",
   "version": "1.0.0",
   "description": "This is a api for user management",
   "main": "index.js",
