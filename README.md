@@ -15,14 +15,14 @@ API desenvolvida apenas com **NodeJS** e suas bibliotecas nativas.
 ## Clone o repositório
 
 ```sh
-git clone https://github.com/your-username/your-repo.git
+git clone https://github.com/joaofreitas91/node-js-user-management-api.git
 ```
 ## Instale as dependências
 
 Navigate to the project directory and install the required dependencies:
   
   ```sh
-  cd your-repo
+  cd node-js-user-management-api
   npm install
   ```
 ## Inicie o servidor
