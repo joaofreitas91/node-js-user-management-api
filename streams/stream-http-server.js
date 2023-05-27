@@ -12,6 +12,6 @@ const server = http.createServer(async (req, res) => {
     res.end(fullStreamContent)
 })
 
-server.listen(3333, () => {
+server.listen(3334, () => {
     console.log('Server is running')
 })

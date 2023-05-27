@@ -1,7 +1,7 @@
 {
-  "name": "01-fundamentos-node",
+  "name": "node-user-management-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is a api for user management",
   "main": "index.js",
   "type": "module",
   "scripts": {
