@@ -19,7 +19,7 @@ git clone https://github.com/joaofreitas91/node-js-user-management-api.git
 ```
 ## Instale as dependências
 
-Navigate to the project directory and install the required dependencies:
+Navegue até o diretório do projeto e instale as dependências: 
   
   ```sh
   cd node-js-user-management-api
